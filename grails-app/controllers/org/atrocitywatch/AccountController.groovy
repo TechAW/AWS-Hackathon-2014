@@ -48,7 +48,7 @@ class AccountController {
 	def addLocation() {
 		User me = springSecurityService.currentUser;
 		if (params.name && params.lat && params.lng && params.radius) {
-			Location loc = new Location(name: params.name, lat: params.lat.toLong(), lng: params.lng.toLong(), radius: params.radius.toDouble());
+			Location loc = new Location(name: params.name, lat: params.lat.toDouble(), lon: params.lng.toDouble(), radius: params.radius.toDouble());
 			loc.save();
 			if (loc.hasErrors()) {
 				render([success: false, error: 'There was an error creating the location. Please try again.'] as JSON);
