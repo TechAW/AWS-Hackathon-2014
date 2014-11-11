@@ -1,3 +1,8 @@
 input {
 	color: #a3a3a3;
 }
+
+.login {
+	max-width: 	350px;
+	margin:		auto;
+}

@@ -33,11 +33,11 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-		<g:javascript src="sweet-alert.min.js" />
+        <g:javascript src="sweet-alert.min.js" />
         <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
         <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
         <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-		<link rel="stylesheet" href="${resource(dir: 'css', file: 'sweet-alert.css')}" type="text/css">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'sweet-alert.css')}" type="text/css">
         <g:layoutHead/>
         <g:javascript library="application"/>
         <r:layoutResources />
@@ -53,8 +53,8 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">
-                        <i class="fa fa-play-circle"></i>  <span class="light">Watch</span> Out
+                    <a class="navbar-brand page-scroll" href="/">
+                        <img src="${resource(dir: 'images', file: 'aw-small.png')}" alt="Atrocity Watch"/></a>
                     </a>
                 </div>
 
@@ -89,22 +89,15 @@
         </nav>
 
         <!-- Intro Header -->
-        <header class="intro">
-            <div class="intro-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div id="grailsLogo" role="banner"><a href="http://www.atrocitywatch.org/">
-                                <img src="${resource(dir: 'images', file: 'aw-small.png')}" alt="Atrocity Watch"/></a>
-                            </div>
-                            <g:layoutBody/>
-                            <div class="footer" role="contentinfo"></div>
-                            <r:layoutResources />
-                        </div>
-                    </div>
+        <section class="container content-section">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <g:layoutBody/>
+                    <div class="footer" role="contentinfo"></div>
+                    <r:layoutResources />
                 </div>
             </div>
-        </header>
+        </section>
 
         <!-- Footer -->
         <footer>
