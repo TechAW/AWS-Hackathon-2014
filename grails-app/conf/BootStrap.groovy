@@ -61,6 +61,19 @@ class BootStrap {
 			loc=new Location(name:it.name,lat:it.latitude,lon:it.longitude,radius:1000)
 			loc.save()
 		}
+		Random rand=new Random()
+		users.each { u ->
+			//assign up to two random locations
+			loc=Location.all[rand.nextInt(Location.all.size())]
+			if (u.locations==null || !u.locations.contains(loc)) {
+			  u.addToLocations(loc)
+			}
+			loc=Location.all[rand.nextInt(Location.all.size())]
+			if (u.locations==null || !u.locations.contains(loc)) {
+			  u.addToLocations(loc)
+			}
+		    u.save()	
+		}
 		
     }
 	

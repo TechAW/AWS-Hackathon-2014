@@ -21,7 +21,7 @@ environments {
 	development {
 		dataSource {
 			dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-			url = "jdbc:postgresql://hackathon.cfodw8cvyhuc.us-west-2.rds.amazonaws.com:5432/atrocity"
+			url = "jdbc:postgresql://hackathon.cfodw8cvyhuc.us-west-2.rds.amazonaws.com:5432/atrocity"		
 		}
 	}
 	test {
