@@ -16,12 +16,12 @@ class NotificationService {
 	  }
     }
 	
-	def notifyByEmail(User user,String subject,String msg) {
+	def notifyByEmail(User user,String subj,String msg) {
 		mailService.sendMail {
 			multipart false
 			to user.email
 			from  'attrocitywatch@theconnman.com'
-			subject subject
+			subject subj.toString()
 			html msg
 		}
 	}

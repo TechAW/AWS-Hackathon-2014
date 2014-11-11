@@ -9,6 +9,6 @@ class HomeController {
 	
 	def notifytest() {
 		User user=SpringSecurityService.currentUser
-		//NotificationService.notify
+		NotificationService.notify(user,"AttrocityWatch Alert","AttrocityWatch Alert")
 	}
 }
