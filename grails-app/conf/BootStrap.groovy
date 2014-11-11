@@ -1,6 +1,5 @@
 import org.atrocitywatch.User
 import org.atrocitywatch.Role
-import org.atrocitywatch.User
 import org.atrocitywatch.UserRole
 
 class BootStrap {
