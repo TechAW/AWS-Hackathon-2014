@@ -1,6 +1,6 @@
-import com.theconnman.Role
-import com.theconnman.User
-import com.theconnman.UserRole
+import org.atrocitywatch.Role
+import org.atrocitywatch.User
+import org.atrocitywatch.UserRole
 
 class BootStrap {
 	
@@ -13,8 +13,8 @@ class BootStrap {
 		println 'Bootstrapping'
 		def adminRole = new Role(authority: "ROLE_ADMIN").save()
 		def userRole = new Role(authority: "ROLE_USER").save()
-		createUser('admin', 'theconnman', adminRole)
-		createUser('user', 'theconnman', userRole)
+		createUser('admin', 'awatch', adminRole)
+		createUser('user', 'awatch', userRole)
     }
     def destroy = {
 		

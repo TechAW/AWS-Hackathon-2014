@@ -1,4 +1,4 @@
-package com.theconnman
+package org.atrocitywatch
 
 import org.apache.commons.lang.builder.HashCodeBuilder
 

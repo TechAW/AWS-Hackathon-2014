@@ -63,6 +63,20 @@ grails {
     }
 }
 
+grails {
+	mail {
+		host='email-smtp.us-east-1.amazonaws.com'
+		port=465
+		username=''
+		password=''
+		props = [
+			'mail.smtp.auth': 'true',
+			'mail.smtp.socketFactory.port':'465',
+			"mail.smtp.socketFactory.class": "javax.net.ssl.SSLSocketFactory",
+			"mail.smtp.socketFactory.fallback": "false"
+		]
+	}
+}
  
 grails.converters.encoding = "UTF-8"
 // scaffolding templates configuration
@@ -117,9 +131,9 @@ log4j = {
 grails.app.context = '/'
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.theconnman.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.theconnman.UserRole'
-grails.plugin.springsecurity.authority.className = 'com.theconnman.Role'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.atrocitywatch.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.atrocitywatch.UserRole'
+grails.plugin.springsecurity.authority.className = 'org.atrocitywatch.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':								['ROLE_ADMIN'],
 	'/index':							['permitAll'],

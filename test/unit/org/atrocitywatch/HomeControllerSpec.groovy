@@ -1,4 +1,6 @@
-package com.theconnman
+package org.atrocitywatch
+
+import org.atrocitywatch.HomeController;
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification

@@ -1,4 +1,4 @@
-package com.theconnman
+package org.atrocitywatch
 
 class Role {
 
