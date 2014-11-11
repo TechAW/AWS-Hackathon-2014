@@ -1,4 +1,4 @@
-package org.atrocitywatch.notifications
+package org.atrocitywatch
 
 import com.twilio.sdk.TwilioRestClient
 import com.twilio.sdk.TwilioRestException
