@@ -10,14 +10,21 @@ class User {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+	
+	String phone
+	String email
 
 	static transients = ['springSecurityService']
 
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+		phone nullable: true
+		email nullable: true
 	}
-
+	
+	static hasMany=[locations:Location]
+	
 	static mapping = {
 		password column: '`password`'
 	}
