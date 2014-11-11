@@ -67,8 +67,8 @@ grails {
 	mail {
 		host='email-smtp.us-east-1.amazonaws.com'
 		port=465
-		username=''
-		password=''
+		username='ses'
+		password='AWSses'
 		props = [
 			'mail.smtp.auth': 'true',
 			'mail.smtp.socketFactory.port':'465',
