@@ -21,7 +21,7 @@ class BootStrap {
 		createUser('admin', 'awatch', adminRole)
 		createUser('user', 'awatch', userRole)
 		
-		[
+		def users = [
 			[
 				username: 'bennett',
 				phone: '7034072881',
@@ -46,11 +46,12 @@ class BootStrap {
 				username: 'milo',
 				phone: '2063106618',
 				email: 'milomilo@trove.com'
-			],
-		].each {
+			]
+		].collect {
 			User user = new User(username: it.username, password: it.username, phone: it.phone, email: it.email, enabled:true);
 			user.save();
 			UserRole.create(user, adminRole, true);
+			return user;
 		}
 		
 	    def loc=new Location(name:"ReInvent",lat:36.1228431,lon:-115.1704714,radius:2500)
@@ -62,7 +63,7 @@ class BootStrap {
 			loc.save()
 		}
 		Random rand=new Random()
-		users.each { u ->
+		User.list().each { u ->
 			//assign up to two random locations
 			loc=Location.all[rand.nextInt(Location.all.size())]
 			if (u.locations==null || !u.locations.contains(loc)) {
