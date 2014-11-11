@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
+			<h1>Welcome to Atrocity Watch Mobile!</h1>
 		</div>
 	</body>
 </html>
