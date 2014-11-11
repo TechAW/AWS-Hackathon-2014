@@ -21,19 +21,25 @@ class BootStrap {
 		createUser('admin', 'awatch', adminRole)
 		createUser('user', 'awatch', userRole)
 		
+		def users=[]
 		def user=new User(username:"bennett",password:"bennett",phone:"7034072881",email:"swb1701@gmail.com",enabled:true)
+		users<<user
 		user.save()
 		UserRole.create(user, adminRole, true)
 		user=new User(username:"ayasein",password:"ayasein",phone:"5712410303",email:"ayasein@gmail.com",enabled:true)
+		users<<user
 		user.save()
 		UserRole.create(user, adminRole, true)
 		user=new User(username:"conn",password:"conn",phone:"7346498544",email:"bcconn2112@gmail.com",enabled:true)
+		users<<user
 		user.save()
 		UserRole.create(user, adminRole, true)
 		user=new User(username:"jd",password:"jd",phone:"+358503011297",email:"jdahlbom@gmail.com",enabled:true)
+		users<<user
 		user.save()
 		UserRole.create(user, adminRole, true)
 		user=new User(username:"milo",password:"milo",phone:"2063106618",email:"milomilo@trove.com",enabled:true)
+		users<<user
 		user.save()
 		UserRole.create(user, adminRole, true)
 		
@@ -44,6 +50,19 @@ class BootStrap {
 		json.each {
 			loc=new Location(name:it.name,lat:it.latitude,lon:it.longitude,radius:1000)
 			loc.save()
+		}
+		Random rand=new Random()
+		users.each { u ->
+			//assign up to two random locations
+			loc=Location.all[rand.nextInt(Location.all.size())]
+			if (u.locations==null || !u.locations.contains(loc)) {
+			  u.addToLocations(loc)
+			}
+			loc=Location.all[rand.nextInt(Location.all.size())]
+			if (u.locations==null || !u.locations.contains(loc)) {
+			  u.addToLocations(loc)
+			}
+		    u.save()	
 		}
 		
     }
