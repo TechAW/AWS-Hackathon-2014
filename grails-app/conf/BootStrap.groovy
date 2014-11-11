@@ -16,21 +16,37 @@ class BootStrap {
 		createUser('admin', 'awatch', adminRole)
 		createUser('user', 'awatch', userRole)
 		
-		def user=new User(username:"bennett",password:"bennett",phone:"7034072881",email:"swb1701@gmail.com",enabled:true)
-		user.save()
-		UserRole.create(user, adminRole, true)
-		user=new User(username:"ayasein",password:"ayasein",phone:"5712410303",email:"ayasein@gmail.com",enabled:true)
-		user.save()
-		UserRole.create(user, adminRole, true)
-		user=new User(username:"conn",password:"conn",phone:"7346498544",email:"bcconn2112@gmail.com",enabled:true)
-		user.save()
-		UserRole.create(user, adminRole, true)
-		user=new User(username:"jd",password:"jd",phone:"+358503011297",email:"jdahlbom@gmail.com",enabled:true)
-		user.save()
-		UserRole.create(user, adminRole, true)
-		user=new User(username:"milo",password:"milo",phone:"2063106618",email:"milomilo@trove.com",enabled:true)
-		user.save()
-		UserRole.create(user, adminRole, true)
+		[
+			[
+				username: 'bennett',
+				phone: '7034072881',
+				email: 'swb1701@gmail.com'
+			],
+			[
+				username: 'ayasein',
+				phone: '5712410303',
+				email: 'ayasein@gmail.com'
+			],
+			[
+				username: 'conn',
+				phone: '7346498544',
+				email: 'bcconn2112@gmail.com'
+			],
+			[
+				username: 'jd',
+				phone: '+358503011297',
+				email: 'jdahlbom@gmail.com'
+			],
+			[
+				username: 'milo',
+				phone: '2063106618',
+				email: 'milomilo@trove.com'
+			],
+		].each {
+			User user = new User(username: it.username, password: it.username, phone: it.phone, email: it.email, enabled:true);
+			user.save();
+			UserRole.create(user, adminRole, true);
+		}
 		
     }
 	

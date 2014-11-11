@@ -8,5 +8,6 @@ class Location {
 	double radius
 
     static constraints = {
+		
     }
 }
