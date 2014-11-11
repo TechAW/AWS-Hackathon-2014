@@ -4,6 +4,7 @@ import org.atrocitywatch.Location
 import org.atrocitywatch.Role
 import org.atrocitywatch.User
 import org.atrocitywatch.UserRole
+import org.atrocitywatch.EventSimulationJob
 
 class BootStrap {
 	
@@ -64,7 +65,7 @@ class BootStrap {
 			}
 		    u.save()	
 		}
-		
+		EventSimulationJob.schedule(10000)
     }
 	
     def destroy = {
