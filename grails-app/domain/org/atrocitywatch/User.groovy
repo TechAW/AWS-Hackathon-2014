@@ -13,6 +13,7 @@ class User {
 	
 	String phone
 	String email
+	Location currentLocation
 
 	static transients = ['springSecurityService']
 
@@ -21,6 +22,7 @@ class User {
 		password blank: false
 		phone nullable: true
 		email nullable: true
+		currentLocation nullable: true
 	}
 	
 	static hasMany=[locations:Location]

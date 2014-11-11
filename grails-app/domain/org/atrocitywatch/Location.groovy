@@ -3,8 +3,8 @@ package org.atrocitywatch
 class Location {
 	
 	String name
-	long lat
-	long lon
+	double lat
+	double lon
 	double radius
 
     static constraints = {

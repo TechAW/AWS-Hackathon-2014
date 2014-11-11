@@ -1,5 +1,8 @@
-import org.atrocitywatch.User
+import grails.converters.JSON
+
+import org.atrocitywatch.Location
 import org.atrocitywatch.Role
+import org.atrocitywatch.User
 import org.atrocitywatch.UserRole
 
 class BootStrap {
@@ -8,6 +11,8 @@ class BootStrap {
 		def me = new User(username: name, password: password, enabled: true).save()
 		UserRole.create(me, role, true)
 	}
+	
+	def grailsApplication
 
     def init = { servletContext ->
 		println 'Bootstrapping'
@@ -31,6 +36,15 @@ class BootStrap {
 		user=new User(username:"milo",password:"milo",phone:"2063106618",email:"milomilo@trove.com",enabled:true)
 		user.save()
 		UserRole.create(user, adminRole, true)
+		
+	    def loc=new Location(name:"ReInvent",lat:36.1228431,lon:-115.1704714,radius:2500)
+		loc.save()
+		def vjson=grailsApplication.parentContext.getResource("data/vegas.json").file.text
+		def json=JSON.parse(vjson)
+		json.each {
+			loc=new Location(name:it.name,lat:it.latitude,lon:it.longitude,radius:1000)
+			loc.save()
+		}
 		
     }
 	
