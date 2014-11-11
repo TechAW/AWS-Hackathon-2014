@@ -4,8 +4,8 @@ class Event {
 	
 	String name
 	Date date
-	long lat
-	long lon
+	double lat
+	double lon
 	double radius
 
     static constraints = {

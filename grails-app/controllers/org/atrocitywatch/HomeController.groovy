@@ -1,6 +1,8 @@
 package org.atrocitywatch
 
+
 import grails.plugin.springsecurity.annotation.Secured
+
 class HomeController {
 
 	def SpringSecurityService
