@@ -137,6 +137,7 @@ grails.plugin.springsecurity.authority.className = 'org.atrocitywatch.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':								['ROLE_ADMIN'],
 	'/index':							['permitAll'],
+	'/dbconsole/**':				 	 ['ROLE_ADMIN'],
 	'/index.gsp':						['permitAll'],
 	'/**/js/**':						['permitAll'],
 	'/**/css/**':						['permitAll'],
