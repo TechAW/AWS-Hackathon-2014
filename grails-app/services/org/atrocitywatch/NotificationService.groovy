@@ -4,8 +4,9 @@ import grails.transaction.Transactional
 
 @Transactional
 class NotificationService {
-	
+
 	def mailService
+	def twilioSender
 
     def notify(User user,subject,msg) {
       if (user.email!=null) {
@@ -15,7 +16,7 @@ class NotificationService {
 		  notifyBySMS(user,subject,msg)
 	  }
     }
-	
+
 	def notifyByEmail(User user,String subject,String msg) {
 		mailService.sendMail {
 			multipart false
@@ -25,7 +26,8 @@ class NotificationService {
 			html msg
 		}
 	}
-	
+
 	def notifyBySMS(User user,String subject,String msg) {
+		twilioSender.sendSMS(user.phone, msg);
 	}
 }
