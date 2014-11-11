@@ -47,7 +47,12 @@ class BootStrap {
 				username: 'milo',
 				phone: '2063106618',
 				email: 'milomilo@trove.com'
-			]
+			],
+			[
+				username: 'jian',
+				phone: '4084380882',
+				email: 'cmti95035@gmail.com'
+			]			
 		].collect {
 			User user = new User(username: it.username, password: it.username, phone: it.phone, email: it.email, enabled:true);
 			user.save();
