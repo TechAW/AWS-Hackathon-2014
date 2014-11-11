@@ -8,6 +8,7 @@ class Location {
 	double radius
 
     static constraints = {
+		
     }
 	static mapping = {
 		table '`location`'

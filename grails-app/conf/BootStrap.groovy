@@ -22,27 +22,38 @@ class BootStrap {
 		createUser('admin', 'awatch', adminRole)
 		createUser('user', 'awatch', userRole)
 		
-		def users=[]
-		def user=new User(username:"bennett",password:"bennett",phone:"7034072881",email:"swb1701@gmail.com",enabled:true)
-		users<<user
-		user.save()
-		UserRole.create(user, adminRole, true)
-		user=new User(username:"ayasein",password:"ayasein",phone:"5712410303",email:"ayasein@gmail.com",enabled:true)
-		users<<user
-		user.save()
-		UserRole.create(user, adminRole, true)
-		user=new User(username:"conn",password:"conn",phone:"7346498544",email:"bcconn2112@gmail.com",enabled:true)
-		users<<user
-		user.save()
-		UserRole.create(user, adminRole, true)
-		user=new User(username:"jd",password:"jd",phone:"+358503011297",email:"jdahlbom@gmail.com",enabled:true)
-		users<<user
-		user.save()
-		UserRole.create(user, adminRole, true)
-		user=new User(username:"milo",password:"milo",phone:"2063106618",email:"milomilo@trove.com",enabled:true)
-		users<<user
-		user.save()
-		UserRole.create(user, adminRole, true)
+		def users = [
+			[
+				username: 'bennett',
+				phone: '7034072881',
+				email: 'swb1701@gmail.com'
+			],
+			[
+				username: 'ayasein',
+				phone: '5712410303',
+				email: 'ayasein@gmail.com'
+			],
+			[
+				username: 'conn',
+				phone: '7346498544',
+				email: 'bcconn2112@gmail.com'
+			],
+			[
+				username: 'jd',
+				phone: '+358503011297',
+				email: 'jdahlbom@gmail.com'
+			],
+			[
+				username: 'milo',
+				phone: '2063106618',
+				email: 'milomilo@trove.com'
+			]
+		].collect {
+			User user = new User(username: it.username, password: it.username, phone: it.phone, email: it.email, enabled:true);
+			user.save();
+			UserRole.create(user, adminRole, true);
+			return user;
+		}
 		
 	    def loc=new Location(name:"ReInvent",lat:36.1228431,lon:-115.1704714,radius:2500)
 		loc.save()
@@ -53,7 +64,7 @@ class BootStrap {
 			loc.save()
 		}
 		Random rand=new Random()
-		users.each { u ->
+		User.list().each { u ->
 			//assign up to two random locations
 			loc=Location.all[rand.nextInt(Location.all.size())]
 			if (u.locations==null || !u.locations.contains(loc)) {
