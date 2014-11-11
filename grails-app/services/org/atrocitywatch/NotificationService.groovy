@@ -10,7 +10,7 @@ class NotificationService {
 
     def notify(User user,subject,msg) {
       if (user.email!=null) {
-		  notifyByEmail(user,subject,msg)
+		  //notifyByEmail(user,subject,msg)
 	  }
 	  if (user.phone!=null) {
 		  notifyBySMS(user,subject,msg)
