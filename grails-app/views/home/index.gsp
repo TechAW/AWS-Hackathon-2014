@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div id="page-body" role="main">
-			<h1 style="margin-left:20px;">Welcome to Atrocity Watch Mobile!</h1>
+			<h2 class="brand-heading">Atrocity Watch Mobile</h2>
 		</div>
 	</body>
 </html>
