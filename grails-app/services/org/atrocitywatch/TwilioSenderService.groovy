@@ -11,12 +11,12 @@ import org.apache.http.message.BasicNameValuePair
  * @author jdahlbom
  * @since 11/11/14 10:21
  */
-class TwilioSender {
+class TwilioSenderService {
     private String ACCOUNT_SID = "";
     private String AUTH_TOKEN = "";
     private String SENDER_NUMBER = "";
 
-    public TwilioSender() {
+    public TwilioSenderService() {
         Map<String, String> env = System.getenv();
         ACCOUNT_SID = env.get("TWILIO_ACCOUNT_SID");
         AUTH_TOKEN = env.get("TWILIO_AUTH_TOKEN");
@@ -38,8 +38,12 @@ class TwilioSender {
         catch (TwilioRestException e) {
             if (e.getErrorCode() == 400) {
                 // Normal error from wrong number, unable to deliver.
+                System.out.println("Could not send SMS because: "+ e.getErrorMessage());
+                throw e;
             } else {
                 // Internal server error, actual error.
+                System.out.println("Internal server error at Twilio: "+ e.getErrorMessage());
+                throw e;
             }
         }
     }
