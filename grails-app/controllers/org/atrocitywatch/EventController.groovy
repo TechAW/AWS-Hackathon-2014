@@ -1,6 +1,9 @@
 package org.atrocitywatch
 
+import grails.plugin.springsecurity.annotation.Secured
+
 class EventController {
 
-    def index() { }
+	def scaffold = true
+	
 }
