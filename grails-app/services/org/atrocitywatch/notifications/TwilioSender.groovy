@@ -14,12 +14,13 @@ import org.apache.http.message.BasicNameValuePair
 class TwilioSender {
     private String ACCOUNT_SID = "";
     private String AUTH_TOKEN = "";
-    private String SENDER_NUMBER = "+16024836430";
+    private String SENDER_NUMBER = "";
 
     public TwilioSender() {
         Map<String, String> env = System.getenv();
         ACCOUNT_SID = env.get("TWILIO_ACCOUNT_SID");
         AUTH_TOKEN = env.get("TWILIO_AUTH_TOKEN");
+        SENDER_NUMBER = env.get("TWILIO_SENDER_NUMBER");
     }
 
     public void sendSMS(String receivingNumber, String message) {
