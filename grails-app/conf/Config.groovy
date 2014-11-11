@@ -65,10 +65,22 @@ grails {
 
 grails {
 	mail {
+		props = [
+			'mail.transport.protocol': 'aws',
+			'mail.aws.class': 'com.amazonaws.services.simpleemail.AWSJavaMailTransport',
+			'mail.aws.user': 'AKIAJVGVN75U32NJA6IA',
+			'mail.aws.password': 'JfcjXTKBKCyaUiIvoudxuYTX6JML+JsefpRpDM4W'
+		]
+	}
+}
+
+/*
+grails {
+	mail {
 		host='email-smtp.us-east-1.amazonaws.com'
 		port=465
-		username='ses'
-		password='AWSses'
+		username=''
+		password=''
 		props = [
 			'mail.smtp.auth': 'true',
 			'mail.smtp.socketFactory.port':'465',
@@ -77,6 +89,7 @@ grails {
 		]
 	}
 }
+*/
  
 grails.converters.encoding = "UTF-8"
 // scaffolding templates configuration
