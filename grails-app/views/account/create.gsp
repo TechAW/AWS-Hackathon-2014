@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div id="page-body" role="main">
-			<h1 style="margin-left: 20px;">Create Account</h1>
+			<h3 style="margin-left: 20px;">Create Account</h3>
 			<g:if test="${ flash.message }">
 				<div class="errors">${ flash.message }</div>
 			</g:if>
