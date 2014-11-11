@@ -19,14 +19,20 @@ class BootStrap {
 		
 		def user=new User(username:"bennett",password:"bennett",phone:"7034072881",email:"swb1701@gmail.com",enabled:true)
 		user.save()
+		UserRole.create(user, adminRole, true)
 		user=new User(username:"ayasein",password:"ayasein",phone:"5712410303",email:"ayasein@gmail.com",enabled:true)
 		user.save()
-		user=new User(username:"conn",password:"conn",phone:"5712062178",email:"bcconn2112@gmail.com",enabled:true)
+		UserRole.create(user, adminRole, true)
+		user=new User(username:"conn",password:"conn",phone:"7346498544",email:"bcconn2112@gmail.com",enabled:true)
 		user.save()
+		UserRole.create(user, adminRole, true)
 		user=new User(username:"jd",password:"jd",phone:"+358503011297",email:"jdahlbom@gmail.com",enabled:true)
 		user.save()
+		UserRole.create(user, adminRole, true)
 		user=new User(username:"milo",password:"milo",phone:"2063106618",email:"milomilo@trove.com",enabled:true)
 		user.save()
+		UserRole.create(user, adminRole, true)
+		
     }
 	
     def destroy = {
