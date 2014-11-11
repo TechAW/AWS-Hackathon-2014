@@ -15,7 +15,7 @@
 	</head>
 	<body>				
 					 
-		<div id="map_canvas" >test</div>
+		<div id="map_canvas" ></div>
 					 	
 		<script>
 		var citymap = {};
@@ -73,6 +73,6 @@
 			     }
 			  }
 			
-
+			</script>
 	</body>
 </html>
