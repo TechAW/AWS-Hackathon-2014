@@ -49,6 +49,7 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
+        runtime 'com.twilio.sdk:twilio-java-sdk:3.4.5'
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.27'
         // runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
@@ -71,7 +72,7 @@ grails.project.dependency.resolution = {
         runtime ":resources:1.2.1"
 		compile ":spring-security-core:2.0-RC2"
 		compile ":spring-security-ui:1.0-RC1"
-		
+
 		runtime ':email-confirmation:2.0.8'
         runtime ':mail:1.0.1'
     }
