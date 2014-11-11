@@ -9,5 +9,9 @@ class Event {
 	double radius
 
     static constraints = {
+		
     }
+	static mapping = {
+		table '`event`'
+	}
 }

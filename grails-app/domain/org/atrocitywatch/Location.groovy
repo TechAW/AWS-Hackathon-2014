@@ -9,4 +9,8 @@ class Location {
 
     static constraints = {
     }
+	static mapping = {
+		table '`location`'
+
+	}
 }

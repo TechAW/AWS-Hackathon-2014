@@ -28,6 +28,7 @@ class User {
 	static hasMany=[locations:Location]
 	
 	static mapping = {
+		table '`user`'
 		password column: '`password`'
 	}
 

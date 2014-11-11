@@ -1,26 +1,20 @@
 package org.atrocitywatch
 
-import grails.converters.JSON
+
+import grails.plugin.springsecurity.annotation.Secured
 
 class HomeController {
 
 	def SpringSecurityService
 	def NotificationService
 
-    def index() { }
+    def index() { 
+		def user = springSecurityService.principal.username
+		println user
+	}
 
 	def notifytest() {
 		User user=SpringSecurityService.currentUser
 		NotificationService.notify(user,"AtrocityWatch Alert","AtrocityWatch Alert")
-	}
-
-	def grailsApplication	
-	def testJson() {
-		def vjson=grailsApplication.parentContext.getResource("data/vegas.json").file.text
-		def json=JSON.parse(vjson)
-		println(json)
-		json.each { 
-			println(it.latitude+" "+it.longitude+" "+it.name)
-		}
 	}
 }
