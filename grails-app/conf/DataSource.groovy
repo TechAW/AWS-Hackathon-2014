@@ -1,68 +1,39 @@
 dataSource {
 	pooled = true
-	driverClassName = "com.mysql.jdbc.Driver"
-	dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+	driverClassName = "org.postgresql.Driver"
+	dialect = "org.hibernate.dialect.PostgreSQLDialect"
+	//dialect = "net.sf.hibernate.dialect.PostgreSQLDialect"
+	username="hackadmin"
+	password = "atrocity"
+
 }
-/*dataSource {
-	pooled = true
-	driverClassName = "org.h2.Driver"
-	username = "sa"
-	password = ""
-}*/
 hibernate {
 	cache.use_second_level_cache = true
 	cache.use_query_cache = false
-	cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory'
+	cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory' // Hibernate 3
+//    cache.region.factory_class = 'org.hibernate.cache.ehcache.EhCacheRegionFactory' // Hibernate 4
+	//cache.provider_class='org.hibernate.cache.EhCacheProvider'
 }
+
+
 // environment specific settings
 environments {
 	development {
 		dataSource {
-			dbCreate = "create-drop"
-			url = 'jdbc:mysql://emanifest.cst4iu2yyyet.us-east-1.rds.amazonaws.com:8080/emanifest?user=emanifest&password=emanifest'
+			dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+			url = "jdbc:postgresql://hackathon.cfodw8cvyhuc.us-west-2.rds.amazonaws.com:5432/atrocity"
 		}
 	}
 	test {
 		dataSource {
-			dbCreate = "update"
-			url = 'jdbc:mysql://emanifest.cst4iu2yyyet.us-east-1.rds.amazonaws.com:8080/emanifest?user=emanifest&password=emanifest'
+			dbCreate = "create-drop"
+		   url = "jdbc:postgresql://hackathon.cfodw8cvyhuc.us-west-2.rds.amazonaws.com:5432/atrocity"
 		}
 	}
 	production {
 		dataSource {
-			dbCreate = "update"
-			url = 'jdbc:mysql://emanifest.cst4iu2yyyet.us-east-1.rds.amazonaws.com:8080/emanifest?user=emanifest&password=emanifest'
+			dbCreate = "create-drop"
+			url = "jdbc:postgresql://hackathon.cfodw8cvyhuc.us-west-2.rds.amazonaws.com:5432/atrocity"
 		}
 	}
 }
-/*environments {
-	development {
-		dataSource {
-			dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-			url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-		}
-	}
-	test {
-		dataSource {
-			dbCreate = "update"
-			url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-		}
-	}
-	production {
-		dataSource {
-			dbCreate = "update"
-			url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-			pooled = true
-			properties {
-			   maxActive = -1
-			   minEvictableIdleTimeMillis=1800000
-			   timeBetweenEvictionRunsMillis=1800000
-			   numTestsPerEvictionRun=3
-			   testOnBorrow=true
-			   testWhileIdle=true
-			   testOnReturn=true
-			   validationQuery="SELECT 1"
-			}
-		}
-	}
-}*/
