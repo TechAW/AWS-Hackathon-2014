@@ -12,13 +12,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.min.css')}" type="text/css">
 
         <!-- Custom CSS -->
-        <link href="css/grayscale.css" rel="stylesheet">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'grayscale.css')}" type="text/css">
+
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
+
 
         <!-- Custom Fonts -->
-        <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="${resource(dir: 'font-awesome-4.2.0/css', file: 'font-awesome.min.css')}" type="text/css">
+
         <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
@@ -110,19 +114,14 @@
         </footer>
 
         <!-- jQuery -->
-        <script src="js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
-
-        <!-- Plugin JavaScript -->
-        <script src="js/jquery.easing.min.js"></script>
+        <g:javascript src="jquery.js" />
+        <g:javascript src="bootstrap.min.js" />
+        <g:javascript src="jquery.easing.min.js" />
 
         <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
         <!-- Custom Theme JavaScript -->
-        <script src="js/grayscale.js"></script>
-
+        <g:javascript src="grayscale.js" />
     </body>
 </html>
