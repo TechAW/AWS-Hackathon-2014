@@ -30,6 +30,7 @@
 					<li><a href="/account/create">Create Account</a></li>
 				</sec:ifNotLoggedIn>
 				<sec:ifLoggedIn>
+					<li><a href="/home/notifytest">Test Notify</a></li>
 					<li><a href="/account/profile">Profile</a></li>
 					<li><a href="#"><sec:username /></a></li>
 				</sec:ifLoggedIn>
