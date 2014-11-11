@@ -22,10 +22,21 @@
 		<r:layoutResources />
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'aw-small.png')}" alt="Grails"/></a></div>
+		<div id="grailsLogo" role="banner"><a href="http://www.atrocitywatch.org/"><img src="${resource(dir: 'images', file: 'aw-small.png')}" alt="Atrocity Watch"/></a></div>
+		<div id="menuHeader">
+			<ul id="menu">
+				<sec:ifNotLoggedIn>
+					<li><a href="/login/auth">Login</a></li>
+					<li><a href="/account/create">Create Account</a></li>
+				</sec:ifNotLoggedIn>
+				<sec:ifLoggedIn>
+					<li><a href="/account/profile">Profile</a></li>
+					<li><a href="#"><sec:username /></a></li>
+				</sec:ifLoggedIn>
+			</ul>
+		</div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		<r:layoutResources />
 	</body>
 </html>
