@@ -111,9 +111,6 @@
         <g:javascript src="bootstrap.min.js" />
         <g:javascript src="jquery.easing.min.js" />
 
-        <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-
         <!-- Custom Theme JavaScript -->
         <g:javascript src="grayscale.js" />
     </body>
