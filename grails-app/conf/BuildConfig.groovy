@@ -77,5 +77,6 @@ grails.project.dependency.resolution = {
 		//compile ":aws:1.7.5.0"
 		runtime ':email-confirmation:2.0.8'
         runtime ':mail:1.0.1'
+		
     }
 }
