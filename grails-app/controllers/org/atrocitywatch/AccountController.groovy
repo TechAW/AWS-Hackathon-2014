@@ -4,35 +4,36 @@ import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
 class AccountController {
-	
+
 	def springSecurityService
 	def searchService
+	def twilioSenderService
 
     def index() { }
-	
+
 	@Secured(["ROLE_ADMIN", "ROLE_USER"])
 	def profile() {
 		User me = springSecurityService.currentUser;
 		[username: me.username, locations: me.locations]
 	}
-	
+
 	@Secured(["ROLE_ADMIN", "ROLE_USER"])
 	def map() {
 		User me = springSecurityService.currentUser;
 		[username: me.username, locations: Location.list() as JSON, events: Event.list() as JSON]
 	}
-	
+
 	@Secured(["ROLE_ADMIN", "ROLE_USER"])
 	def newEvents() {
 		Collection<Event> events = Event.list().grep { it.id >= params.num.toLong() }
 		render(events as JSON)
 	}
-	
+
 	@Secured(["ROLE_ADMIN", "ROLE_USER"])
 	def track() {
 		[events: Event.list() as JSON]
 	}
-	
+
 	@Secured(["ROLE_ADMIN", "ROLE_USER"])
 	def trackMe() {
 		Collection<Event> old = session.old ? session.old.collect { Event.get(it) } : [];
@@ -45,11 +46,18 @@ class AccountController {
 		session.old = map.events*.id;
 		render([success: true, radius: cur.radius, alert: map.alert] as JSON)
 	}
-	
-	def create() {
-		
+
+	def testNumber() {
+		String number = params.number;
+		String message = "This is a test message from Atrocity Watch."
+		twilioSenderService.sendSMS(number, message);
+		render([success: true] as JSON)
 	}
-	
+
+	def create() {
+
+	}
+
 	def submitCreation() {
 		if (!params.username) {
 			flash.message = 'Please input a username.'
@@ -74,7 +82,7 @@ class AccountController {
 			}
 		}
 	}
-	
+
 	@Secured(["ROLE_ADMIN", "ROLE_USER"])
 	def addLocation() {
 		User me = springSecurityService.currentUser;

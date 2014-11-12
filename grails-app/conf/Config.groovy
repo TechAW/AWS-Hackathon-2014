@@ -90,7 +90,7 @@ grails {
 	}
 }
 */
- 
+
 grails.converters.encoding = "UTF-8"
 // scaffolding templates configuration
 grails.scaffolding.templates.domainSuffix = 'Instance'
@@ -147,6 +147,7 @@ grails.app.context = '/'
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.atrocitywatch.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.atrocitywatch.UserRole'
 grails.plugin.springsecurity.authority.className = 'org.atrocitywatch.Role'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/account/profile'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':								['ROLE_ADMIN'],
 	'/index':							['permitAll'],

@@ -24,6 +24,7 @@
 						<div class="form-group">
 							<label for='password'>Phone:</label>
 							<input type='text' class="form-control" name='phone' id='phone'/>
+							<button type="button" class="btn btn-info" onclick="testNumber()">Send a test SMS</button>
 						</div>
 						<div class="form-group">
 							<label for='password'>Email:</label>
@@ -35,5 +36,16 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			function testNumber() {
+				$.ajax({
+					url: "/account/testNumber",
+					type: "POST",
+					data: {
+						number: $('#phone').val()
+					}
+				})
+			}
+		</script>
 	</body>
 </html>

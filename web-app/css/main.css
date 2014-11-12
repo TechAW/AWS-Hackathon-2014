@@ -11,7 +11,7 @@ input {
 	width: 80%;
 }
 
-.location-table > tbody > tr > td {
+.location-table > tbody > tr > td, .location-table > thead > tr > th {
 	padding-right: 2em;
 }
 
