@@ -29,7 +29,9 @@ class AccountController {
 	}
 	
 	@Secured(["ROLE_ADMIN", "ROLE_USER"])
-	def track() { }
+	def track() {
+		[events: Event.list() as JSON]
+	}
 	
 	@Secured(["ROLE_ADMIN", "ROLE_USER"])
 	def trackMe() {
@@ -39,9 +41,9 @@ class AccountController {
 		cur.lat = params.lat.toDouble();
 		cur.lon = params.lng.toDouble();
 		cur.save();
-		Collection<Event> events = searchService.checkCurrentLocation(me, old);
-		session.old = events*.id;
-		render([success: true] as JSON)
+		Map map = searchService.checkCurrentLocation(me, old);
+		session.old = map.events*.id;
+		render([success: true, radius: cur.radius, alert: map.alert] as JSON)
 	}
 	
 	def create() {

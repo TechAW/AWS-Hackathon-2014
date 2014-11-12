@@ -7,20 +7,19 @@ class SearchService {
 	
 	def notificationService;
 	
-	Collection<Event> checkCurrentLocation(User me, Collection<Event> old) {
+	Map checkCurrentLocation(User me, Collection<Event> old) {
 		Collection<Event> events = checkLocation(me.currentLocation);
 		Collection<Event> newEvents = events - old;
 		if (newEvents.size() > 0) {
 			notificationService.notify(me, 'Alert', 'Warning: ' + newEvents.size() + ' event' + (newEvents.size() > 1 ? 's' : '') + ' in your area.')
 		}
-		return events;
+		return [events: events, alert: newEvents.size() > 0];
 	}
 	
 	void checkNewEvent(Event event) {
 		User.list().each { u -> 
 			u.locations.each { loc ->
 				if (eventInLocation(event, loc)) {
-					println u.username
 					notificationService.notify(u, 'Alert', 'Warning: New event near ' + loc.name + '.')
 				}
 			}

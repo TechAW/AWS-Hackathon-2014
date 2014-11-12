@@ -55,6 +55,7 @@ grails.project.dependency.resolution = {
         // runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
 		runtime "com.amazonaws:aws-java-sdk:1.7.3"
 		runtime "postgresql:postgresql:9.1-901.jdbc4"
+		
     }
 
     plugins {
@@ -78,5 +79,7 @@ grails.project.dependency.resolution = {
 		runtime ':email-confirmation:2.0.8'
         runtime ':mail:1.0.1'
 		
+		//compile ":hibernate-spatial-postgresql:0.0.4"
+		//compile ":hibernate-spatial:0.0.4"
     }
 }

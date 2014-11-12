@@ -83,7 +83,7 @@ class BootStrap {
 					u.addToLocations(loc)
 				}
 			}
-			u.currentLocation = new Location(name: 'Current Location', lat: 0, lon: 0, radius: 1000).save()
+			u.currentLocation = new Location(name: 'Current Location', lat: 0, lon: 0, radius: 50).save()
 			u.save()
 		}
 		if (!fixedEvents) EventSimulationJob.schedule(10000)
