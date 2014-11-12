@@ -141,7 +141,7 @@ environments {
 	production {
 		dataSource {
 			dbCreate = "create-drop"
-			url = "jdbc:postgresql://hackathon.cfodw8cvyhuc.us-west-2.rds.amazonaws.com:5432/atrocity"
+			url = "jdbc:postgresql://hackathon.cfodw8cvyhuc.us-west-2.rds.amazonaws.com:5432/atrocityprod"
 		}
 	}
 }
