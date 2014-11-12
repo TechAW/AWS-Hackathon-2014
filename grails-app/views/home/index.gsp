@@ -12,9 +12,10 @@
 				<h1 class="brand-heading">Atrocity Watch Mobile</h1>
 			</div>
 		</header>
-
+       
 		<section class="map-section">
-			<div id="map_canvas" >test</div>
+		  Address:<input type=text id='address' /><button onclick='geocodeAddress()'>Click</button> <div id='result' ></div>
+			<div id="map_canvas" ></div>
 			<script>
 				var citymap = {};
 
@@ -24,15 +25,17 @@
 				};
 				var cityCircle
 				google.maps.event.addDomListener(window, "load", initializeMap);
-
+				var geocoder 
+				var map
 				function initializeMap(){
+					geocoder = new google.maps.Geocoder();
 					var mapCanvas = document.getElementById("map_canvas");
 					var mapOptions = {
 						center: new google.maps.LatLng(36.175,  -115.1363889),
 						zoom: 6,
 						mapTypeId: google.maps.MapTypeId.ROADMAP
 					}
-					var map = new google.maps.Map(mapCanvas, mapOptions);
+					 map = new google.maps.Map(mapCanvas, mapOptions);
 					/* var ctaLayer = new google.maps.KmlLayer({
 					 url: 'http://gmaps-samples.googlecode.com/svn/trunk/ggeoxml/cta.kml'
 					 });
@@ -69,6 +72,24 @@
 						// Add the circle for this city to the map.
 						cityCircle = new google.maps.Circle(cirOptions);
 					}
+				}
+				function geocodeAddress() {
+					
+					  var address = $('#address').val();
+					  alert(address)
+					  geocoder.geocode( { 'address': address}, function(results, status) {
+					    if (status == google.maps.GeocoderStatus.OK) {
+
+					    	$('#result').html (results[0].geometry.location.lng() +' '+results[0].geometry.location.lat() ) 
+					      map.setCenter(results[0].geometry.location);
+					      var marker = new google.maps.Marker({
+					          map: map,
+					          position: results[0].geometry.location
+					      });
+					    } else {
+					      alert('Geocode was not successful for the following reason: ' + status);
+					    }
+					  });
 				}
 			</script>
 		</section>
