@@ -6,6 +6,7 @@ import grails.plugin.springsecurity.annotation.Secured
 class AccountController {
 	
 	def springSecurityService
+	def searchService
 
     def index() { }
 	
@@ -32,11 +33,14 @@ class AccountController {
 	
 	@Secured(["ROLE_ADMIN", "ROLE_USER"])
 	def trackMe() {
+		Collection<Event> old = session.old ? session.old.collect { Event.get(it) } : [];
 		User me = springSecurityService.currentUser;
 		Location cur = me.currentLocation;
 		cur.lat = params.lat.toDouble();
 		cur.lon = params.lng.toDouble();
 		cur.save();
+		Collection<Event> events = searchService.checkCurrentLocation(me, old);
+		session.old = events*.id;
 		render([success: true] as JSON)
 	}
 	

@@ -4,6 +4,17 @@ import grails.transaction.Transactional
 
 @Transactional
 class SearchService {
+	
+	def notificationService;
+	
+	Collection<Event> checkCurrentLocation(User me, Collection<Event> old) {
+		Collection<Event> events = checkLocation(me.currentLocation);
+		Collection<Event> newEvents = events - old;
+		if (newEvents.size() > 0) {
+			notificationService.notify(me, 'Alert', 'Warning: ' + newEvents.size() + ' event' + (newEvents.size() > 1 ? 's' : '') + ' in your area.')
+		}
+		return events;
+	}
 
     Collection<Event> checkLocation(Location loc) {
 		double minLat = newLat(loc.lat, -loc.radius);
