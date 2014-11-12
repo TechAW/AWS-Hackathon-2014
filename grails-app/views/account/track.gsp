@@ -13,7 +13,7 @@
 			</div>
 		</header>
 
-		<section class="map-section">
+		<section>
 			<script>
 				function update(pos) {
 					$.ajax({
@@ -23,7 +23,7 @@
 							lng: pos.coords.longitude,
 						},
 						success: function(data) {
-							console.log(data)
+							
 						}
 					})
 				}
