@@ -21,6 +21,12 @@ class AccountController {
 		[username: me.username, locations: Location.list() as JSON, events: Event.list() as JSON]
 	}
 	
+	@Secured(["ROLE_ADMIN", "ROLE_USER"])
+	def newEvents() {
+		Collection<Event> events = Event.list().grep { it.id >= params.num.toLong() }
+		render(events as JSON)
+	}
+	
 	def create() {
 		
 	}

@@ -18,6 +18,7 @@
 			<script>
 				var locs = JSON.parse('${ locations }'.replace(/&quot;/g, '"'));
 				var events = JSON.parse('${ events }'.replace(/&quot;/g, '"'));
+				var map;
 				
 				google.maps.event.addDomListener(window, "load", initializeMap);
 
@@ -28,7 +29,7 @@
 						zoom: 14,
 						mapTypeId: google.maps.MapTypeId.ROADMAP
 					}
-					var map = new google.maps.Map(mapCanvas, mapOptions);
+					map = new google.maps.Map(mapCanvas, mapOptions);
 					locs.forEach(function(d) {
 						var cirOptions = {
 							strokeColor: '#FF0000',
@@ -47,12 +48,33 @@
 					});
 
 					events.forEach(function(d) {
-						var marker = new google.maps.Marker({
-						      position: new google.maps.LatLng(d.lat, d.lon),
-						      map: map
-						  });
+						addEvent(d);
 					})
 				}
+
+				function retrieveEvents() {
+					$.ajax({
+						url: '/account/newEvents',
+						data: {
+							num: events.length
+						},
+						success: function(data) {
+							events = events.concat(data);
+							data.forEach(addEvent)
+						}
+					})
+				}
+
+				function addEvent(event) {
+					var marker = new google.maps.Marker({
+					      position: new google.maps.LatLng(event.lat, event.lon),
+					      map: map
+					  });
+				}
+
+				$(function() {
+					setInterval(retrieveEvents, 10000)
+				})
 			</script>
 		</section>
 	</body>
