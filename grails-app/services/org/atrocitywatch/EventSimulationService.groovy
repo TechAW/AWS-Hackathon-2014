@@ -21,6 +21,7 @@ class EventSimulationService {
 		double nlon=SearchService.newLng(rloc.lat,rloc.lon,londisp-100)
 		def event=new Event(name:"Atrocity Report "+cnt,date:new Date(),lat:nlat,lon:nlon,radius:500)
 		event.save(flush:true)
+		SearchService.checkNewEvent(event)
 		if (event.hasErrors()) {
 			println(event.errors)
 		}

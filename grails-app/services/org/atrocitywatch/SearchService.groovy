@@ -15,6 +15,17 @@ class SearchService {
 		}
 		return events;
 	}
+	
+	void checkNewEvent(Event event) {
+		User.list().each { u -> 
+			u.locations.each { loc ->
+				if (eventInLocation(event, loc)) {
+					println u.username
+					notificationService.notify(u, 'Alert', 'Warning: New event near ' + loc.name + '.')
+				}
+			}
+		}
+	}
 
     Collection<Event> checkLocation(Location loc) {
 		double minLat = newLat(loc.lat, -loc.radius);
@@ -29,6 +40,14 @@ class SearchService {
 		}
 		return events;
     }
+	
+	boolean eventInLocation(Event event, Location loc) {
+		double minLat = newLat(loc.lat, -loc.radius);
+		double maxLat = newLat(loc.lat, loc.radius);
+		double minLng = newLng(loc.lat, loc.lon, -loc.radius);
+		double maxLng = newLng(loc.lat, loc.lon, loc.radius);
+		return event.lat < maxLat && event.lat > minLat && event.lon < maxLng && event.lon > minLng;
+	}
 	
 	double newLat(double lat, double feet) {
 		double rad = 20925524.9 * 2 * Math.PI;
