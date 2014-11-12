@@ -60,7 +60,7 @@ class BootStrap {
 			return user;
 		}
 		
-	    def loc=new Location(name:"ReInvent",lat:36.1228431,lon:-115.1704714,radius:2500)
+	    def loc=new Location(name:"ReInvent",lat:36.1228431,lon:-115.1704714,radius:1000)
 		loc.save()
 		def vjson=grailsApplication.parentContext.getResource("data/vegas.json").file.text
 		def json=JSON.parse(vjson)

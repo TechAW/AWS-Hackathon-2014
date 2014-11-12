@@ -26,6 +26,14 @@
         <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
+        <!-- jQuery -->
+        <g:javascript src="jquery.js" />
+        <g:javascript src="bootstrap.min.js" />
+        <g:javascript src="jquery.easing.min.js" />
+
+        <!-- Custom Theme JavaScript -->
+        <g:javascript src="grayscale.js" />
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -75,6 +83,7 @@
                         </sec:ifNotLoggedIn>
                         <sec:ifLoggedIn>
                             <li><a class="page-scroll" href="/home/notifytest">Test Notify</a></li>
+                            <li><a class="page-scroll" href="/account/map">Event Map</a></li>
                             <li><a class="page-scroll" href="/account/profile">Profile</a></li>
                             <li><a class="page-scroll" href="#"><sec:username /></a></li>
                         </sec:ifLoggedIn>
@@ -105,13 +114,5 @@
                 <p>Copyright #reinvent Hackathon Atrocity Watch Team 11</p>
             </div>
         </footer>
-
-        <!-- jQuery -->
-        <g:javascript src="jquery.js" />
-        <g:javascript src="bootstrap.min.js" />
-        <g:javascript src="jquery.easing.min.js" />
-
-        <!-- Custom Theme JavaScript -->
-        <g:javascript src="grayscale.js" />
     </body>
 </html>

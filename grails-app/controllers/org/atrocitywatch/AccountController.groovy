@@ -15,6 +15,12 @@ class AccountController {
 		[username: me.username, locations: me.locations]
 	}
 	
+	@Secured(["ROLE_ADMIN", "ROLE_USER"])
+	def map() {
+		User me = springSecurityService.currentUser;
+		[username: me.username, locations: Location.list() as JSON, events: Event.list() as JSON]
+	}
+	
 	def create() {
 		
 	}
