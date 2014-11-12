@@ -7,6 +7,16 @@ class NotificationService {
 
 	def mailService
 	def twilioSenderService
+	
+	def alert=false
+	
+	def toggleAlert() {
+		alert=!alert
+	}
+	
+	def getAlert() {
+		return(alert)
+	}
 
     def notify(User user,subject,msg) {
       if (user.email!=null) {

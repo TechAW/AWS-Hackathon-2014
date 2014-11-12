@@ -17,4 +17,12 @@ class HomeController {
 		User user=SpringSecurityService.currentUser
 		NotificationService.notify(user,"AtrocityWatch Alert","AtrocityWatch Alert")
 	}
+	
+	def toggleAlert() {
+		NotificationService.toggleAlert()
+	}
+	
+	def getAlert() {
+		render(NotificationService.getAlert())
+	}
 }
