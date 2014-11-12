@@ -25,7 +25,7 @@
 					var mapCanvas = document.getElementById("map_canvas");
 					var mapOptions = {
 						center: new google.maps.LatLng(36.1228431, -115.1704714),
-						zoom: 18,
+						zoom: 19,
 						mapTypeId: google.maps.MapTypeId.ROADMAP
 					}
 					map = new google.maps.Map(mapCanvas, mapOptions);
@@ -38,7 +38,8 @@
 				function addEvent(event) {
 					var marker = new google.maps.Marker({
 					      position: new google.maps.LatLng(event.lat, event.lon),
-					      map: map
+					      map: map,
+					      title: event.name
 					  });
 				}
 
