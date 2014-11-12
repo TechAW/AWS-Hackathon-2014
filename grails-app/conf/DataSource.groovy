@@ -141,7 +141,17 @@ environments {
 	production {
 		dataSource {
 			dbCreate = "create-drop"
-			url = "jdbc:postgresql://hackathon.cfodw8cvyhuc.us-west-2.rds.amazonaws.com:5432/atrocity"
+			url = "jdbc:postgresql://hackathon.cfodw8cvyhuc.us-west-2.rds.amazonaws.com:5432/atrocityprod"
 		}
+		properties {
+               maxActive = -1
+               minEvictableIdleTimeMillis=1800000
+               timeBetweenEvictionRunsMillis=1800000
+               numTestsPerEvictionRun=3
+               testOnBorrow=true
+               testWhileIdle=true
+               testOnReturn=true
+               validationQuery="SELECT 1"
+            }
 	}
 }

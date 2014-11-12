@@ -15,7 +15,7 @@ class BootStrap {
 	}
 
 	def grailsApplication
-	def fixedEvents=true
+	def fixedEvents=false
 
 	def init = { servletContext ->
 		println 'Bootstrapping'
@@ -86,7 +86,7 @@ class BootStrap {
 			u.currentLocation = new Location(name: 'Current Location', lat: 0, lon: 0, radius: 50).save()
 			u.save()
 		}
-		if (!fixedEvents) EventSimulationJob.schedule(10000)
+		//if (!fixedEvents) EventSimulationJob.schedule(10000)
 	}
 
 	def destroy = {
