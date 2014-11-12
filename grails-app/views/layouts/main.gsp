@@ -50,6 +50,7 @@
         <g:javascript library="application"/>
         <r:layoutResources />
 
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
     </head>
 
     <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">

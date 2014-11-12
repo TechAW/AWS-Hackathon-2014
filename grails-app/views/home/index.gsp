@@ -3,7 +3,6 @@
 	<head>
 		<meta name="layout" content="main"/>
 		<title>Atrocity Watch</title>
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
 	</head>
 
 	<body>
@@ -12,9 +11,9 @@
 				<h1 class="brand-heading">Atrocity Watch Mobile</h1>
 			</div>
 		</header>
-       
+
 		<section class="map-section">
-		  Address:<input type=text id='address' /><button onclick='geocodeAddress()'>Click</button> <div id='result' ></div>
+		 <!-- Address:<input type=text id='address' /><button onclick='geocodeAddress()'>Click</button> <div id='result' ></div> -->
 			<div id="map_canvas" ></div>
 			<script>
 				var citymap = {};
@@ -25,7 +24,7 @@
 				};
 				var cityCircle
 				google.maps.event.addDomListener(window, "load", initializeMap);
-				var geocoder 
+				var geocoder
 				var map
 				function initializeMap(){
 					geocoder = new google.maps.Geocoder();
@@ -74,13 +73,13 @@
 					}
 				}
 				function geocodeAddress() {
-					
+
 					  var address = $('#address').val();
 					  alert(address)
 					  geocoder.geocode( { 'address': address}, function(results, status) {
 					    if (status == google.maps.GeocoderStatus.OK) {
 
-					    	$('#result').html (results[0].geometry.location.lng() +' '+results[0].geometry.location.lat() ) 
+					    	$('#result').html (results[0].geometry.location.lng() +' '+results[0].geometry.location.lat() )
 					      map.setCenter(results[0].geometry.location);
 					      var marker = new google.maps.Marker({
 					          map: map,
