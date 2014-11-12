@@ -258,12 +258,29 @@ a:focus {
     width: 100%;
     height: auto;
     color: #fff;
-    background: url(../img/bigstock-Dark-zone-of-barbwire-fences-51611164.jpg) no-repeat bottom center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+
+@media (max-width:640px) {
+    .content-section {
+        background: url(../img/bigstock-Dark-zone-of-barbwire-fences-51611164_640.jpg) no-repeat top center scroll;
+    }
+}
+
+@media (min-width:641px) and (max-width:1080px) {
+    .content-section {
+        background: url(../img/bigstock-Dark-zone-of-barbwire-fences-51611164_1080.jpg) no-repeat top center scroll;
+    }
+}
+
+@media (min-width:1081px) {
+    .content-section {
+        background: url(../img/bigstock-Dark-zone-of-barbwire-fences-51611164_2048.jpg) no-repeat top center scroll;
+    }
 }
 
 .content-section > div {

@@ -57,6 +57,7 @@
 					// Add the circle for this city to the map.
 					c = new google.maps.Circle(cirOptions);
 					map.setCenter(new google.maps.LatLng(lat, lng))
+					console.log("Set center at "+ lat + ", "+ lng);
 				}
 
 				function update(pos) {
@@ -70,13 +71,15 @@
 							console.log(data)
 							redrawLocation(pos.coords.latitude, pos.coords.longitude, data.radius, data.alert)
 						}
+					}).always(function() {
+						console.log("Did position update");
 					})
 				}
 
 				$(function() {
 					setInterval(function() {
 						navigator.geolocation.getCurrentPosition(update)
-					}, 5000)
+					}, 2000)
 				})
 			</script>
 		</section>
