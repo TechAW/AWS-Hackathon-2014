@@ -27,6 +27,19 @@ class AccountController {
 		render(events as JSON)
 	}
 	
+	@Secured(["ROLE_ADMIN", "ROLE_USER"])
+	def track() { }
+	
+	@Secured(["ROLE_ADMIN", "ROLE_USER"])
+	def trackMe() {
+		User me = springSecurityService.currentUser;
+		Location cur = me.currentLocation;
+		cur.lat = params.lat.toDouble();
+		cur.lon = params.lng.toDouble();
+		cur.save();
+		render([success: true] as JSON)
+	}
+	
 	def create() {
 		
 	}

@@ -79,6 +79,7 @@ class BootStrap {
 			if (u.locations==null || !u.locations.contains(loc)) {
 			  u.addToLocations(loc)
 			}
+			u.currentLocation = new Location(name: 'Current Location', lat: 0, lon: 0, radius: 1000).save()
 		    u.save()	
 		}
 		EventSimulationJob.schedule(10000)
