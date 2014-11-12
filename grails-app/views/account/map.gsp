@@ -73,7 +73,8 @@
 				}
 
 				$(function() {
-					setInterval(retrieveEvents, 10000)
+					retrieveEvents()
+					setInterval(retrieveEvents, 5000)
 				})
 			</script>
 		</section>

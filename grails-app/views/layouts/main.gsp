@@ -83,7 +83,7 @@
                             </li>
                         </sec:ifNotLoggedIn>
                         <sec:ifLoggedIn>
-                            <li><a class="page-scroll" href="/home/notifytest">Test Notify</a></li>
+                            <li><a class="page-scroll" href="/home/createEvents">Trigger Events</a></li>
                             <li><a class="page-scroll" href="/account/track">Track Me</a></li>
                             <li><a class="page-scroll" href="/account/map">Event Map</a></li>
                             <li><a class="page-scroll" href="/account/profile">Profile</a></li>

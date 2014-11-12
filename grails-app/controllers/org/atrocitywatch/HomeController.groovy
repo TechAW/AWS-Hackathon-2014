@@ -1,7 +1,7 @@
 package org.atrocitywatch
 
-
 import grails.plugin.springsecurity.annotation.Secured
+import org.atrocitywatch.EventSimulationJob
 
 class HomeController {
 
@@ -16,6 +16,11 @@ class HomeController {
 	def notifytest() {
 		User user=SpringSecurityService.currentUser
 		NotificationService.notify(user,"AtrocityWatch Alert","AtrocityWatch Alert")
+	}
+
+	def createEvents() {
+		EventSimulationJob.schedule(3000, 5)
+		redirect(controller: 'account', action: 'map')
 	}
 	
 	def toggleAlert() {
