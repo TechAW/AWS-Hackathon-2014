@@ -25,6 +25,7 @@ class HomeController {
 	
 	def toggleAlert() {
 		NotificationService.toggleAlert()
+		redirect(action: 'index')
 	}
 	
 	def getAlert() {
