@@ -7,4 +7,10 @@ input {
 	margin:		auto;
 }
 
+.midsized-input {
+	width: 80%;
+}
 
+.location-table > tbody > tr > td {
+	padding-right: 2em;
+}
