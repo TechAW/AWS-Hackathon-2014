@@ -12,8 +12,9 @@
 			</div>
 		</header>
 
+
 			<section>
-		 <!-- Address:<input type=text id='address' /><button onclick='geocodeAddress()'>Click</button> <div id='result' ></div> -->	
+		 <!-- Address:<input type=text id='address' /><button onclick='geocodeAddress()'>Click</button> <div id='result' ></div> -->
 		</section>
 	</body>
 </html>

@@ -90,7 +90,7 @@ hibernate {
     }
     production {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop"
             url = "jdbc:h2:legaltrackerDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
             pooled = true
             properties {
