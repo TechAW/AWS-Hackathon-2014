@@ -27,28 +27,19 @@ class BootStrap {
 				username: 'bennett',
 				phone: '7034072881',
 				email: 'swb1701@gmail.com'
-			],
-			[
+			], [
 				username: 'ayasein',
-				phone: '5712410303',
+				phone: '5712410343',
 				email: 'ayasein@gmail.com'
-			],
-			[
+			], [
 				username: 'conn',
 				phone: '7346498544',
 				email: 'bcconn2112@gmail.com'
-			],
-			[
+			], [
 				username: 'jd',
 				phone: '+358503011297',
 				email: 'jdahlbom@gmail.com'
-			],
-			[
-				username: 'milo',
-				phone: '2063106618',
-				email: 'milomilo@trove.com'
-			],
-			[
+			], [
 				username: 'jian',
 				phone: '4084380882',
 				email: 'cmti95035@gmail.com'
