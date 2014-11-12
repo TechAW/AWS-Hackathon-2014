@@ -124,7 +124,6 @@ hibernate {
 	//cache.provider_class='org.hibernate.cache.EhCacheProvider'
 }
 
-
 // environment specific settings
 environments {
 	development {
